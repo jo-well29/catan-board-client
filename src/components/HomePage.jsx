@@ -8,7 +8,7 @@ const HomePage = () => {
             <div className="homepage-container">
                 <h1>Welcome</h1>
                 <div className="text">
-                    <h4>The Scottish Pimp is a Catan Board Game Generator packed with many different stylers for you to choose. Browse and Save your favorite Boards. Use the Filter to Help Narrow Your Search Results. Most Importantly, HAVE FUN!</h4>
+                    <h4>The Scottish Pimp is a Catan Board Game Generator packed with many different styles for you to choose. Browse and Save your favorite Boards. Use the Filter to Help Narrow Your Search Results. Most Importantly, HAVE FUN!</h4>
                 </div>
 
             </div>
