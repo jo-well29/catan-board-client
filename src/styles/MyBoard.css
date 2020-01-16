@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Raleway|Righteous|Teko&display=swap');
+
+.myBoard {
+    background-color:#f6e7cf;
+    height: 200vh;
+    width: 100%;
+}
+
+.myBoard .navlinks {
+    padding-left: 1.5em;
+}
+
+.board-card {
+    margin-top: 1.5em;
+    display: flex;
+    border: 1px solid black;
+    width: 14em;
+    font-size: .8em;
+    flex-direction: column;
+    text-align: center;
+}
+
+.board-delete button {
+    width: 15em;
+    background-color: #fec472;
+    margin-top: 2em;
+    height: 5em;
+}
+
+.board-delete button p {
+    font-size: 1.7em;
+    font-family: 'Raleway', sans-serif;
+}

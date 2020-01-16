@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Raleway|Righteous|Teko&display=swap');
+
+.navlinks {
+    text-decoration: none;
+    color: black;
+    font-family: 'Righteous', cursive;
+
+}
+
+.navlinks::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width .3s;
+}
+
+.navlinks:hover::after {
+    width: 100%;
+}

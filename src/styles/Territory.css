@@ -1,0 +1,33 @@
+
+.tile-container {
+    border: 1px solid black;
+    height: 40px;
+    width: 50px;
+
+}
+
+.tile-color {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.num-tile {
+    position: relative;
+    display: flex;
+    bottom: 38%;
+    transform: translate(1.2vw, -2vh);
+    background-color: white;
+    width: 40%;
+    border-radius: 50%;
+    margin: 0;
+    padding: .08em;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .num-tile {
+        transform:translate(4vw, -4vh)
+    }
+}
