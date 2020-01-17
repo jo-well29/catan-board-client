@@ -8,16 +8,12 @@ import { NavLink } from 'react-router-dom'
 const terrains = ['Brick', 'Brick', 'Brick', 'Ore', 'Ore', 'Ore', 'Sheep', 'Sheep', 'Sheep', 'Sheep', 'Lumber', 'Lumber', 'Lumber', 'Lumber', 'Wheat', 'Wheat', 'Wheat', 'Wheat']
 const number_chits = [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12]
 
-const pattern = [3, 4, 5, 4, 3]
+
 
 
 
 
 class Game extends React.Component {
-
-    componentDidMount() {
-        this.postBoard()
-    }
 
     shuffledArray = arr => {
         for (let i = arr.length - 1; i > 0; i--) {
@@ -28,7 +24,7 @@ class Game extends React.Component {
     }
 
 
-    handleSubmit = (e, shT, shN) => {
+    handleSubmit = (e, shT, shN, clicked) => {
         e.preventDefault()
         console.log(e.target.name.value)
         console.log(shT, shN)
@@ -37,12 +33,14 @@ class Game extends React.Component {
             tiles: shT,
             probability: shN
         }
+        console.log(clicked)
+        clicked &&
         this.postBoard(body)
     }
 
     postBoard = (body) => {
         console.log(body)
-        axios.post('http://localhost:3000/boards',
+        axios.post(`/boards`,
 
             body
         )
@@ -53,7 +51,7 @@ class Game extends React.Component {
 
     render() {
         let shT = this.shuffledArray(terrains)
-
+      
         let shN = this.shuffledArray(number_chits)
         let arrTopRow = []
         let arrSecondRow = []
@@ -107,7 +105,7 @@ class Game extends React.Component {
 
             return <Territory num={e[0]} tile={e[1]}></Territory>
         })
-
+console.log(mapTerrain)
         console.log(arrTopRow, arrSecondRow, arrThirdRow, arrFourRow, arrFiveRow)
         return (
             <div className="game">
@@ -118,7 +116,7 @@ class Game extends React.Component {
                         <NavLink className="navlinks" exact to='/myboard' activeClassName="active">myBoard</NavLink>
                     </div>
                     <div className="form">
-                        <form onSubmit={(e) => this.handleSubmit(e, shT, shN)}>
+                        <form onSubmit={(e) => this.handleSubmit(e, shT, shN, 'clicked')}>
                             <input type="text"
                                 name="name"
                                 placeholder="Name of Board"

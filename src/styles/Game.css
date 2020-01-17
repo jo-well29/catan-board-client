@@ -90,6 +90,6 @@
 @media only screen and (max-width: 500px){
     .game {
         height: 200vh;
-        width:100vw;
+        width:100%;
     }
 }

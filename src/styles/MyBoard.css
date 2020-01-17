@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Raleway|Righteous|Teko&display=swap');
 
+.myboard{
+    border: 1px solid black;
+    width: 12em;
+}
+
 .myBoard {
     background-color:#f6e7cf;
     height: 200vh;
@@ -13,7 +18,6 @@
 .board-card {
     margin-top: 1.5em;
     display: flex;
-    border: 1px solid black;
     width: 14em;
     font-size: .8em;
     flex-direction: column;
@@ -30,4 +34,9 @@
 .board-delete button p {
     font-size: 1.7em;
     font-family: 'Raleway', sans-serif;
+}
+
+.myboard-form {
+    display: flex;
+    flex-direction: column;
 }

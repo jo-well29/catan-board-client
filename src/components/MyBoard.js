@@ -10,7 +10,8 @@ class MyBoard extends React.Component {
     constructor() {
         super()
         this.state = {
-            boards: []
+            boards: [],
+            value:''
 
         }
     }
@@ -20,7 +21,7 @@ class MyBoard extends React.Component {
     }
 
     getBoards() {
-        fetch('http://localhost:3000/boards'
+        fetch(`/boards`
         )
             .then(res => res.json())
             .then(jsonedBoards => this.setState({ boards: jsonedBoards }))
@@ -28,7 +29,7 @@ class MyBoard extends React.Component {
     }
 
     handleDelete = (id) => {
-        let del = axios.delete(`http://localhost:3000/boards/${id}`)
+        let del = axios.delete(`/boards/${id}`)
             .then(() => {
                 this.getBoards()
             })
@@ -40,7 +41,7 @@ class MyBoard extends React.Component {
             name: this.state.name
         }
         this.getBoards()
-        Axios.put(`http://localhost:3000/boards/${id}`, data)
+        Axios.put(`/boards/${id}`, data)
             .then(updatedName => {
 
             })
@@ -49,6 +50,7 @@ class MyBoard extends React.Component {
     }
 
     handleChange = (e) => {
+    console.log(e.target.name)
         this.setState({ [e.target.name]: e.target.value})
     }
 
@@ -56,7 +58,7 @@ class MyBoard extends React.Component {
 
     render() {
         const { boards } = this.state
-        console.log(boards)
+        console.log(this.state)
         return (
             <div className="myBoard">
                 <Header />
@@ -65,25 +67,25 @@ class MyBoard extends React.Component {
                 </div>
                 <div className="boards-container">
                     {boards.map(board =>
-                    <>
+                    <div className="myboard">
                         <div className="board-card">
                             <h1>{board.name}</h1>
                             <div className="board-delete">
                                 <button onClick={() => this.handleDelete(board.id)}><p>Delete</p></button>
                             </div>
                         </div>
-                        <div className="form">
+                        <div className="myboard-form">
                             <form onSubmit={(e) => this.handleUpdate(e, board.id)}>
                                 <input type="text"
                                     name="name"
-                                    placeholder="Name of Board"
+                                    placeholder="Change Board Name"
                                     value={this.state.name}
                                     onChange={this.handleChange}
                                 />
                                 <button>Change Name</button>
                             </form>
                         </div>
-                        </>)}
+                        </div>)}
                 </div>
             </div>
 
